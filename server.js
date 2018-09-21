@@ -10,7 +10,7 @@ var cheerio = require("cheerio");
 var request = require("request");
 
 // Require all models
-var db = require("./models");
+// var db = require("./models");
 
 // Initialize Express
 var PORT = process.env.PORT || 3000;
@@ -29,7 +29,6 @@ app.use(express.static("public"));
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
 mongoose.connect("mongodb://localhost/mongoscraper", {
-  useMongoClient: true
 });
 
 
