@@ -20,10 +20,7 @@ app.use(bodyParser.urlencoded({
 }));
 // Use express
 app.use(express.static("public"));
-mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/mongoscraper", {
-  useMongoClient: true
-});
+
 
 // catchall route
 app.get("/", function (req, res) {
@@ -90,7 +87,18 @@ app.get("/articles", function (req, res) {
     });
 });
 
+
+
+
+
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true 
+});
+
 
 // Start the server
 app.listen(PORT, function () {
